@@ -1,0 +1,44 @@
+body {
+    max-width: 400px;
+    min-width: 200px;
+    color: dimgrey;
+    margin: 10% 2% 2% 20%;
+}
+#main-content{
+    font-style: italic;
+    color: hsl(125,100%,20%); 
+}
+
+#input-area {
+    align-self: center;
+    background-color: #e4946b;
+    border: 10px double #eee;
+    margin: auto;
+    text-align: left;
+    font-style: oblique;
+    font-size: 30px;
+    max-width: 80%;
+    margin-bottom: inherit;
+}
+
+form {
+    margin: 5%;
+    margin-bottom: auto
+}
+
+.list-group {
+    margin: 5%;
+    font-size: 20px;
+    margin-bottom: auto;
+}
+
+
+input[type="submit"] {
+    vertical-align: top;
+    color: blue;
+}
+
+
+.errors{
+	color: red;
+}
