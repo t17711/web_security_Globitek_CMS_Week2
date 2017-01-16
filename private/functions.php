@@ -21,6 +21,25 @@
     return $_SERVER['REQUEST_METHOD'] == 'POST';
   }
 
+  // this compares post value with entry value, does db request and returns error and 
+  function process_post_request($function='',&$name='',&$db_result='',&$errors=''){
+  // Confirm that values are present before accessing them.
+    foreach ($name as $key) {
+      if(isset($_POST[$key])) {$db_result[$key] = $_POST[$key]; }
+    }
+   
+      // db query
+     $result = call_user_func($function,$db_result);
+     if($result === true) {
+       return true;
+     } 
+      else {
+        $errors = $result;
+        return false;
+        
+      }
+  }
+
   function display_errors($errors=array()) {
     $output = '';
     if (!empty($errors)) {

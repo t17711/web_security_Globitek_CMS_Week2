@@ -44,6 +44,17 @@
     return $state_result;
   }
 
+  //
+  // my custom state by ID
+  function find_country_by_id($id=0) {
+    global $db;
+    $sql = "SELECT * FROM countries ";
+    $sql .= "WHERE id='" . $id . "';";
+    $country_result = db_query($db, $sql);
+    return $country_result;
+  }
+
+
   function validate_state($state, $errors=array()) {
     // TODO add validations
 
@@ -52,15 +63,24 @@
 
   // Add a new state to the table
   // Either returns true or an array of errors
-  function insert_state($state) {
+  function insert_state(&$state='') {
     global $db;
 
     $errors = validate_state($state);
+    
     if (!empty($errors)) {
       return $errors;
     }
 
-    $sql = ""; // TODO add SQL
+    // For INSERT statments, $result is just true/false
+    $sql = "INSERT INTO states ";
+    $sql .= "(name, code, country_id)";
+    $sql .= "VALUES (";
+    $sql .= "'" . $state['name'] . "',";
+    $sql .= "'" . $state['code'] . "',";
+    $sql .="'". $state['country_id']."'";
+    $sql .= ");";
+
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -76,7 +96,7 @@
 
   // Edit a state record
   // Either returns true or an array of errors
-  function update_state($state) {
+  function update_state(&$state) {
     global $db;
 
     $errors = validate_state($state);
@@ -84,8 +104,11 @@
       return $errors;
     }
 
-    $sql = ""; // TODO add SQL
-    // For update_state statments, $result is just true/false
+     $sql = "UPDATE states SET ";
+    $sql .= "name='" . $state['name'] . "', ";
+    $sql .= "code='" . $state['code'] . "' ";
+    $sql .= "WHERE id='" . $state['id'] . "' ";
+    $sql .= "LIMIT 1;";
     $result = db_query($db, $sql);
     if($result) {
       return true;
@@ -146,7 +169,15 @@
       return $errors;
     }
 
-    $sql = ""; // TODO add SQL
+    // For INSERT statments, $result is just true/false
+    $sql = "INSERT INTO territories ";
+    $sql .= "(name, position, state_id)";
+    $sql .= "VALUES (";
+    $sql .= "'" . $territory['name'] . "',";
+    $sql .= "'" . $territory['position'] . "',";
+    $sql .="'". $territory['state_id']."'";
+    $sql .= ");";
+
     // For INSERT statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -170,7 +201,13 @@
       return $errors;
     }
 
-    $sql = ""; // TODO add SQL
+    $sql = "UPDATE territories SET ";
+    $sql .= "name='" . $territory['name'] . "', ";
+    $sql .= "state_id='" . $territory['state_id'] . "', ";
+    $sql .= "position='" . $territory['position'] . "' ";
+    $sql .= "WHERE id='" . $territory['id'] . "' ";
+    $sql .= "LIMIT 1;";
+    $result = db_query($db, $sql);
     // For update_territory statments, $result is just true/false
     $result = db_query($db, $sql);
     if($result) {
@@ -293,7 +330,7 @@
       return $errors;
     }
 
-    $sql = ""; // TODO add SQL
+
     $sql = "UPDATE salespeople SET ";
     $sql .= "first_name='" . $salesperson['first_name'] . "', ";
     $sql .= "last_name='" . $salesperson['last_name'] . "', ";

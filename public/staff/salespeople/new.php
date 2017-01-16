@@ -6,47 +6,22 @@ require_once('../../../private/initialize.php');
 <?php include(SHARED_PATH . '/header.php'); ?>
 
 <?php
-$name[] = 'first_name';
-$name[] = 'last_name';
-$name[] = 'phone';
-$name[] = 'email';
+$name = ['first_name', 'last_name', 'phone','email'];
+$value_title= ['Enter First Name: ','Enter Last Name: ','Enter Phone: ','Enter Email '];
 
-$value_title[]='Enter First Name: ';
-$value_title[]='Enter Last Name: ';
-$value_title[]='Enter Phone: ';
-$value_title[]='Enter Email ';
+$redirect =$_SERVER["PHP_SELF"]; // post redirect
+$salesperson = array_fill_keys($name, '');
 
 $value =[];
 $errors=[];
 
-$salesperson = array(
-  'first_name' => '',
-  'last_name' => '',
-  'phone' => '',
-  'email' => ''
-);
-
-$redirect =$_SERVER["PHP_SELF"]; // post redirect
-
 // process db value compare to post and update
 if(is_post_request()) {
-
-  // Confirm that values are present before accessing them.
-	foreach ($name as $key) {
-		if(isset($_POST[$key])) {$salesperson[$key] = $_POST[$key]; }
-	}
- 
-  	$result = insert_salesperson($salesperson);
-
-  	if($result === true) {
+  	$result = process_post_request('insert_salesperson',$name, $salesperson, $errors);
+  	if($result){
   		$new_id = db_insert_id($db);
-    	redirect_to('show.php?id=' . $new_id);
-  	} 
-  	else {
-    	$errors = $result;
-    	
-  	}
- 	
+        redirect_to('show.php?id=' . $new_id);
+	}
 }
 
 // now copy values to display
