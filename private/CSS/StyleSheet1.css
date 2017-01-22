@@ -1,44 +1,59 @@
-body {
-    max-width: 400px;
+body
+{
     min-width: 200px;
-    color: dimgrey;
+    max-width: 400px;
     margin: 10% 2% 2% 20%;
+
+    color: dimgrey;
 }
-#main-content{
+
+#main-content
+{
     font-style: italic;
-    color: hsl(125,100%,20%); 
+    color: hsl(125,100%,20%);
 }
 
-#input-area {
-    align-self: center;
-    background-color: #e4946b;
-    border: 10px double #eee;
-    margin: auto;
-    text-align: left;
-    font-style: oblique;
+#input-area
+{
     font-size: 30px;
+    font-style: oblique;
+
     max-width: 80%;
+    margin: auto;
     margin-bottom: inherit;
+
+    text-align: left;
+
+    border: 10px double #eee;
+    background-color: #e4946b;
+
+    align-self: center;
 }
 
-form {
+form
+{
     margin: 5%;
-    margin-bottom: auto
+    margin-bottom: auto;
 }
 
-.list-group {
-    margin: 5%;
+.list-group
+{
     font-size: 20px;
+
+    margin: 5%;
     margin-bottom: auto;
 }
 
 
-input[type="submit"] {
+input[type='submit']
+{
     vertical-align: top;
+
     color: blue;
 }
 
 
-.errors{
-	color: red;
+.errors
+{
+    color: red;
 }

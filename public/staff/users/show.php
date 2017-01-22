@@ -1,24 +1,28 @@
 <?php
-require_once('../../../private/initialize.php');
+require_once '../../../private/initialize.php';
 
-if(!isset($_GET['id'])) {
-  redirect_to('index.php');
+$id=$_GET['id'];
+if(!is_valid_id($id)) {
+    redirect_to('index.php');
 }
+
 $id = $_GET['id'];
+
 $users_result = find_user_by_id($id);
 // No loop, only one result
 $user = db_fetch_assoc($users_result);
+$user=array_map("h",$user);
 ?>
 
 <?php $page_title = 'Staff: User ' . $user['first_name'] . " " . $user['last_name']; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
+<?php require SHARED_PATH . '/header.php'; ?>
 
 <div id="main-content">
   <a href="index.php">Back to Users List</a><br />
 
   <h1>User: <?php echo $user['first_name'] . " " . $user['last_name']; ?></h1>
 
-  <?php
+    <?php
     echo "<table id=\"user\">";
     echo "<tr>";
     echo "<td>Name: </td>";
@@ -35,10 +39,10 @@ $user = db_fetch_assoc($users_result);
     echo "</table>";
 
     db_free_result($users_result);
-  ?>
+    ?>
   <br />
   <a href="edit.php?id=<?php echo $user['id']; ?>">Edit</a><br />
 
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php require SHARED_PATH . '/footer.php'; ?>

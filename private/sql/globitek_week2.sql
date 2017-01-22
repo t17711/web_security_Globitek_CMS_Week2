@@ -12,7 +12,7 @@ CREATE TABLE `salespeople` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10;
 
---
+--    
 -- Dumping data for table `salespeople`
 --
 

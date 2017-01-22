@@ -1,7 +1,7 @@
-<?php require_once('../../private/initialize.php'); ?>
+<?php require_once '../../private/initialize.php'; ?>
 
 <?php $page_title = 'Staff: Menu'; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
+<?php require SHARED_PATH . '/header.php'; ?>
 
 <div id="main-content">
   <h1>Menu</h1>
@@ -18,4 +18,4 @@
   </ul>
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php require SHARED_PATH . '/footer.php'; ?>

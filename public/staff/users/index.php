@@ -1,7 +1,7 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once '../../../private/initialize.php'; ?>
 
 <?php $page_title = 'Staff: Users'; ?>
-<?php include(SHARED_PATH . '/header.php'); ?>
+<?php require SHARED_PATH . '/header.php'; ?>
 
 <div id="main-content">
   <a href="../index.php">Back to Menu</a><br />
@@ -11,7 +11,7 @@
   <a href="new.php">Add a User</a><br />
   <br />
 
-  <?php
+    <?php
     $users_result = find_all_users();
 
     echo "<table id=\"users\" style=\"width: 500px;\">";
@@ -23,22 +23,22 @@
     echo "<th></th>";
     echo "</tr>";
     while($user = db_fetch_assoc($users_result)) {
-      echo "<tr>";
-      echo "<td>" . $user['first_name'] . "</td>";
-      echo "<td>" . $user['last_name'] . "</td>";
-      echo "<td>" . $user['username'] . "</td>";
-      echo "<td>";
-      echo "<a href=\"show.php?id=" . $user['id'] . "\">Show</a>";
-      echo "</td>";
-      echo "<td>";
-      echo "<a href=\"edit.php?id=" . $user['id'] . "\">Edit</a>";
-      echo "</td>";
-      echo "</tr>";
+        echo "<tr>";
+        echo "<td>" . h($user['first_name']) . "</td>";
+        echo "<td>" . h($user['last_name']) . "</td>";
+        echo "<td>" . h($user['username']) . "</td>";
+        echo "<td>";
+        echo "<a href=\"show.php?id=" . $user['id'] . "\">Show</a>";
+        echo "</td>";
+        echo "<td>";
+        echo "<a href=\"edit.php?id=" . $user['id'] . "\">Edit</a>";
+        echo "</td>";
+        echo "</tr>";
     } // end while $user
     db_free_result($users_result);
     echo "</table>"; // #$users
-  ?>
+    ?>
 
 </div>
 
-<?php include(SHARED_PATH . '/footer.php'); ?>
+<?php require SHARED_PATH . '/footer.php'; ?>

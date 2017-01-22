@@ -21,24 +21,7 @@
     return $_SERVER['REQUEST_METHOD'] == 'POST';
   }
 
-  // this compares post value with entry value, does db request and returns error and 
-  function process_post_request($function='',&$name='',&$db_result='',&$errors=''){
-  // Confirm that values are present before accessing them.
-    foreach ($name as $key) {
-      if(isset($_POST[$key])) {$db_result[$key] = $_POST[$key]; }
-    }
-   
-      // db query
-     $result = call_user_func($function,$db_result);
-     if($result === true) {
-       return true;
-     } 
-      else {
-        $errors = $result;
-        return false;
-        
-      }
-  }
+
 
   function display_errors($errors=array()) {
     $output = '';
@@ -63,8 +46,8 @@ function input_area($title=[],$name=[], $value=[], $redirect=''){
   for($i = 0; $i<sizeof($title);$i++){
     $out.= '<div>';
     $out.= $title[$i];
-    $n = h($name[$i]);
-    $v = h($value[$i]);
+    $n = $name[$i];
+    $v = $value[$i];
     $out.= '<input type="text" name="' . $n . '" value="' . $v .'"';
     $out.= '<hr //> <//div>';
   }
@@ -73,5 +56,24 @@ function input_area($title=[],$name=[], $value=[], $redirect=''){
 
   return $out;
 }
+
+  // this compares post value with entry value, does db request and returns error and 
+  function process_post_request($fun='',&$name='',&$db_result='',&$errors=''){
+  // Confirm that values are present before accessing them.
+    foreach ($name as $key) {
+      if(isset($_POST[$key])) {$db_result[$key] = $_POST[$key]; }
+    }
+   
+      // db query
+     $result = call_user_func($fun,$db_result);
+     if($result === true) {
+       return true;
+     } 
+      else {
+        $errors = $result;
+        return false;
+        
+      }
+  }
 
 ?>
