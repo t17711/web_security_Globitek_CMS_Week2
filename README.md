@@ -9,8 +9,8 @@ The following > *required> * functionality is completed:
 - [x] Staff CMS for Users, Salespeople, States, Territories.
     * index.php 
     > * in users/index.php shows list of users.
-         * has option to edit, show each user.
-         * has option to add new user.
+    >     * has option to edit, show each user.
+    >     * has option to add new user.
     > * in Salespeople/index.php shows list of Salesperson.
         >> * has option to edit, show each Salesperson.
         >> * has option to add new Salesperson.
