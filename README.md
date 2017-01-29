@@ -1,6 +1,6 @@
 # Project 2 - Globitek Input/Output Sanitization
 
-Time spent: > *X> * hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
@@ -68,7 +68,7 @@ The following advanced user stories are optional:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> *
+<img src='https://github.com/t17711/web_security_Globitek_CMS_Week2/blob/master/walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> *
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
