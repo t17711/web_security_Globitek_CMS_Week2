@@ -9,8 +9,8 @@ The following > *required> * functionality is completed:
 - [x] Staff CMS for Users, Salespeople, States, Territories.
     * index.php 
     > * in users/index.php shows list of users.
-        >> * has option to edit, show each user.
-        >> * has option to add new user.
+         * has option to edit, show each user.
+         * has option to add new user.
     > * in Salespeople/index.php shows list of Salesperson.
         >> * has option to edit, show each Salesperson.
         >> * has option to add new Salesperson.
@@ -33,6 +33,7 @@ The following > *required> * functionality is completed:
     > * Edit php for all has a form that submits by post, and if submission is succesfully validated and updated to database it redirects to show.php.
     > * new.php
     > * similar to edit it has form with required values.
+
 - [x] Validations
     * I validated email can only have numbers, letters, symbols(. _ -) and has to have only one @. 
     * name can have any characters.
