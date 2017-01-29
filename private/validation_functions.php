@@ -23,7 +23,7 @@
   function has_valid_email_format($value) {
     // Function can be improved later to check for
     // more than just '@'.
-    $reg = '/\A[A-Za-z0-9\@\.\-\_]+\Z/';
+    $reg = '/\A[A-Za-z0-9\.\-\_]*\@[A-Za-z0-9\.\-\_]*\Z/';
     if(preg_match($reg,$value)){
         return true;
       }
@@ -90,10 +90,11 @@ function is_valid_abbreviation($value){
 
 //My custom validation
  // check for username uniqueness
-function is_unique_abbreviation_code($code=''){
+function is_unique_abbreviation_code($code='', $country=0){
   global $db;
 
-  $sql = "SELECT COUNT(*) as num FROM states where code = '" . strtoupper(db_escape($db,$code)) ."'";
+  $sql = "SELECT COUNT(*) as num FROM states where code = '" . strtoupper(db_escape($db,$code)) ."' and country_id = " . $country . "";
+  //die($sql);
   $result =db_query($db,$sql);
   $data = db_fetch_assoc($result);
 

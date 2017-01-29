@@ -15,6 +15,7 @@ $errors=[];
 $states_result = find_state_by_id($id);
 // No loop, only one result
 $state = db_fetch_assoc($states_result);
+$cur_sname = h($state['name']);
 
 $redirect =$_SERVER["PHP_SELF"].'?id='.$state['id'];
 
@@ -34,13 +35,13 @@ foreach ($name as $key) {
 
 
 ?>
-<?php $page_title = 'Staff: Edit State ' . $state['name']; ?>
+<?php $page_title = 'Staff: Edit State ' . $cur_sname; ?>
 <?php require SHARED_PATH . '/header.php'; ?>
 
 <div id="main-content">
     <a href="index.php">Back to States List</a><br />
 
-    <h1>Edit State: <?php echo h($state['name']); ?></h1>
+    <h1>Edit State: <?php echo $cur_sname; ?></h1>
 
     <!-- TODO add form -->
     <?php echo display_errors($errors); echo input_area($value_title, $name, $value, $redirect) ?>

@@ -67,9 +67,7 @@
       $errors[] = "State Abbreviation Code cannot be blank.";
     } elseif (!is_valid_abbreviation($state['code'])) {
       $errors[] = "State Abbreviation Code must be 2 characters and only letters.";
-    } elseif(!is_unique_abbreviation_code($state['code'])){
-      $errors[] = "State Abbreviation code already taken";
-    }
+    } 
 
 
     if (is_blank($state['country_id'])) {
@@ -86,11 +84,18 @@
   function insert_state($state='') {
     global $db;
 
-    $errors = validate_state($state);
-    
+    $errors = validate_state($state); 
+
+   if (!empty($errors)) {
+      return $errors;
+    }elseif(!is_unique_abbreviation_code($state['code'],$state['country_id'])) {
+      $errors[] = "State Abbreviation code already taken";
+    }
+
     if (!empty($errors)) {
       return $errors;
     }
+
 
     // For INSERT statments, $result is just true/false
     $sql = "INSERT INTO states ";
@@ -120,6 +125,18 @@
     global $db;
 
     $errors = validate_state($state);
+ 
+    if(!is_unique_abbreviation_code($state['code'], $state['country_id'])){
+      // so either it is current id or somebody else's
+
+      $states_result = find_state_by_id($state['id']);
+      // No loop, only one result
+      $state_temp = db_fetch_assoc($states_result);
+      
+      if(!($state_temp['code'] == strtoupper($state['code']))) {
+        $errors[]="Abbreviation Code already taken";}
+    }
+
     if (!empty($errors)) {
       return $errors;
     }

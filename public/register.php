@@ -3,11 +3,8 @@
 
   // Set default values for all variables the page needs.
   $errors = array();
-  $first_name = '';
+  $first_name = $last_name = $email =$username ='';
   $last_name = '';
-  $email = '';
-  $username = '';
-
   // if this is a POST request, process the form
 if(is_post_request()) {
 
@@ -20,7 +17,7 @@ if(is_post_request()) {
     }
     if(isset($_POST['username'])) { $username = $_POST['username']; 
     }
-
+    
     // Validations
     if (is_blank($first_name)) {
         $errors[] = "First name cannot be blank.";

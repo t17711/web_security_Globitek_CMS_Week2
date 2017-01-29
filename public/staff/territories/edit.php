@@ -6,10 +6,11 @@ if(!is_valid_id($id)) {
     redirect_to('index.php');
 }
 
-$territories_result = find_territory_by_id($id]);
+$territories_result = find_territory_by_id($id);
 // No loop, only one result
 $territory = db_fetch_assoc($territories_result);
 $state_id = $territory['state_id'];
+$cur_name= h($territory['name']);
 
 $name = ['name', 'position','state_id'];
 $value_title= ['Enter Territory Name: ','Enter Territory Position: '];
@@ -35,13 +36,13 @@ foreach ($name as $key) {
 
 
 ?>
-<?php $page_title = 'Staff: Edit Territory ' . $territory['name']; ?>
+<?php $page_title = 'Staff: Edit Territory ' . $cur_name; ?>
 <?php require SHARED_PATH . '/header.php'; ?>
 
 <div id="main-content">
   <a href="index.php?state=<?php echo $state_id?>">Back to State Details</a><br />
 
-  <h1>Edit Territory: <?php echo $territory['name']; ?></h1>
+  <h1>Edit Territory: <?php echo $cur_sname; ?></h1>
 
   <!-- TODO add form -->
 <?php echo display_errors($errors); echo input_area($value_title, $name, $value, $redirect) ?>
