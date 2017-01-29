@@ -65,7 +65,7 @@
 //My custom validation
  // check username
 function is_valid_user_name($value){
-   if(has_length($value, array('max' => 255))){
+   if(has_length($value, array('min' => 8, 'max' => 255))){
       $reg = '/\A[A-Za-z0-9\_]+\Z/';
       if(preg_match($reg,$value)){
 
