@@ -1,10 +1,6 @@
 <?php
 
-require_once '../../../private/initialize.php';
-$id=$_GET['id'];
-if(!is_valid_id($id)) {
-    redirect_to('index.php');
-}
+require_once '../../../private/initialize.php'; $id=$_GET['id']; if(!is_valid_id($id)) {     redirect_to('index.php'); }
 
 $users_result = find_user_by_id($id);
 // No loop, only one result
@@ -39,7 +35,9 @@ foreach ($name as $key) {
     $value[]=$user[$key];
 }
 ?>
+
 <?php $page_title = 'Staff: Edit User ' . $cur_name; ?>
+
 <?php require SHARED_PATH . '/header.php'; ?>
 
 <div id="main-content">

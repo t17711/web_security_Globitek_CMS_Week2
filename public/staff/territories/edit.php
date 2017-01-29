@@ -42,7 +42,7 @@ foreach ($name as $key) {
 <div id="main-content">
   <a href="index.php?state=<?php echo $state_id?>">Back to State Details</a><br />
 
-  <h1>Edit Territory: <?php echo $cur_sname; ?></h1>
+  <h1>Edit Territory: <?php echo $cur_name; ?></h1>
 
   <!-- TODO add form -->
 <?php echo display_errors($errors); echo input_area($value_title, $name, $value, $redirect) ?>

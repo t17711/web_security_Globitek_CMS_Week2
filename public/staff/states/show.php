@@ -48,13 +48,18 @@ $state = db_fetch_assoc($state_result);
     $territory_result = find_territories_for_state_id($state['id']);
 
     echo "<ul id=\"territories\">";
-while($territory = db_fetch_assoc($territory_result)) {
-    echo "<li>";
-    echo "<a href=\"../territories/show.php?id=" . $territory['id'] . "\">";
+    echo "<table id=\"territories\" style=\"width: 500px;\">";
+ while($territory = db_fetch_assoc($territory_result)) {
+    echo "<tr><td>";
+    echo "<a href=\"../territories/show.php?id=" . h($territory['id']) . "\">";
     echo h($territory['name']);
+    echo "</a></td><td>";
+    echo "<a href=\"../territories/edit.php?id=" . h($territory['id']) . "\">";
+    echo "Edit";
     echo "</a>";
-    echo "</li>";
+    echo "</td></tr>";
 } // end while $territory
+echo "</table";
     db_free_result($territory_result);
     echo "</ul>"; // #territories
 
