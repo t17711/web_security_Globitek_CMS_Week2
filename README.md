@@ -1,38 +1,38 @@
 # Project 2 - Globitek Input/Output Sanitization
 
-Time spent: **X** hours spent in total
+Time spent: >X> hours spent in total
 
 ## User Stories
 
-The following **required** functionality is completed:
+The following >required> functionality is completed:
 
 - [x] Staff CMS for Users, Salespeople, States, Territories.
     * index.php 
-    ** in users/index.php shows list of users.
+    > in users/index.php shows list of users.
         >> has option to edit, show each user.
         >> has option to add new user.
-    ** in Salespeople/index.php shows list of Salesperson.
+    > in Salespeople/index.php shows list of Salesperson.
         >> has option to edit, show each Salesperson.
         >> has option to add new Salesperson.
-     ** in states/index.php shows list of states in Canada and US.
+     > in states/index.php shows list of states in Canada and US.
         >> States are seperated by country.
         >> has option to edit, show each States.
         >> has options to add new States for each country.
-     ** in territories/index.php redirects to states/show.php?id=x where x is the id of the state that territory belongs to.
+     > in territories/index.php redirects to states/show.php?id=x where x is the id of the state that territory belongs to.
     
     * show.php 
-    ** I used user id from HTTP GET to identify user, state, territory and salesperson and extract the info to display.
-    ** All show page has option to edit.
-    ** in users/show.php it shows name, username and email of user.
-    ** in salesperson/show.php it shows name, username and email of salesperson.
-    ** in states/show.php it shows name, Abbreviation code  and country Id.
+    > I used user id from HTTP GET to identify user, state, territory and salesperson and extract the info to display.
+    > All show page has option to edit.
+    > in users/show.php it shows name, username and email of user.
+    > in salesperson/show.php it shows name, username and email of salesperson.
+    > in states/show.php it shows name, Abbreviation code  and country Id.
         >> It also lists all the territories in the state.
         >> it has option to add a new territory, edit the listed territories.
-    ** in territories/show.php it shows name, state id, and position.
+    > in territories/show.php it shows name, state id, and position.
     * edit.php
-    ** Edit php for all has a form that submits by post, and if submission is succesfully validated and updated to database it redirects to show.php.
-    ** new.php
-    ** similar to edit it has form with required values.
+    > Edit php for all has a form that submits by post, and if submission is succesfully validated and updated to database it redirects to show.php.
+    > new.php
+    > similar to edit it has form with required values.
 - [x] Validations
     * I validated email can only have numbers, letters, symbols(. _ -) and has to have only one @. 
     * name can have any characters.
