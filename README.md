@@ -12,12 +12,12 @@ The following > *required> * functionality is completed:
     >     * has option to edit, show each user.
     >     * has option to add new user.
     > * in Salespeople/index.php shows list of Salesperson.
-        >> * has option to edit, show each Salesperson.
-        >> * has option to add new Salesperson.
+        >    * has option to edit, show each Salesperson.
+        >    * has option to add new Salesperson.
      > * in states/index.php shows list of states in Canada and US.
-        >> * States are seperated by country.
-        >> * has option to edit, show each States.
-        >> * has options to add new States for each country.
+        >    * States are seperated by country.
+        >    * has option to edit, show each States.
+        >    * has options to add new States for each country.
      > * in territories/index.php redirects to states/show.php?id=x where x is the id of the state that territory belongs to.
     
     * show.php 
@@ -26,8 +26,8 @@ The following > *required> * functionality is completed:
     > * in users/show.php it shows name, username and email of user.
     > * in salesperson/show.php it shows name, username and email of salesperson.
     > * in states/show.php it shows name, Abbreviation code  and country Id.
-        >> * It also lists all the territories in the state.
-        >> * it has option to add a new territory, edit the listed territories.
+        >    * It also lists all the territories in the state.
+        >    * it has option to add a new territory, edit the listed territories.
     > * in territories/show.php it shows name, state id, and position.
     * edit.php
     > * Edit php for all has a form that submits by post, and if submission is succesfully validated and updated to database it redirects to show.php.
